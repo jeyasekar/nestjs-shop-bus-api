@@ -1,0 +1,42 @@
+2021-11-17T11:53:47.702Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":5964,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T11:53:47.709Z [[31merror[39m] : in fetchMasterData error {"pid":5964,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T11:53:47.711Z [[33mwarn[39m] : in fetchMasterData warn {"pid":5964,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T11:56:26.984Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":6332,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T11:56:26.989Z [[31merror[39m] : in fetchMasterData error {"pid":6332,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T11:56:26.992Z [[33mwarn[39m] : in fetchMasterData warn {"pid":6332,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T11:58:42.808Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":1160,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T11:58:42.821Z [[31merror[39m] : in fetchMasterData error {"pid":1160,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T11:58:42.841Z [[33mwarn[39m] : in fetchMasterData warn {"pid":1160,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T11:59:12.172Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":11676,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T11:59:12.178Z [[31merror[39m] : in fetchMasterData error {"pid":11676,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T11:59:12.181Z [[33mwarn[39m] : in fetchMasterData warn {"pid":11676,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T14:59:25.705Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":13560,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T14:59:25.715Z [[31merror[39m] : in fetchMasterData error {"pid":13560,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T14:59:25.716Z [[33mwarn[39m] : in fetchMasterData warn {"pid":13560,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T15:01:43.048Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":13600,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T15:01:43.054Z [[31merror[39m] : in fetchMasterData error {"pid":13600,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T15:01:43.056Z [[33mwarn[39m] : in fetchMasterData warn {"pid":13600,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T15:02:34.085Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":14268,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T15:02:34.091Z [[31merror[39m] : in fetchMasterData error {"pid":14268,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T15:02:34.093Z [[33mwarn[39m] : in fetchMasterData warn {"pid":14268,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:02:14.050Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":14644,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:02:14.077Z [[31merror[39m] : in fetchMasterData error {"pid":14644,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T16:02:14.080Z [[33mwarn[39m] : in fetchMasterData warn {"pid":14644,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:02:39.611Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":4992,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:02:39.623Z [[31merror[39m] : in fetchMasterData error {"pid":4992,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T16:02:39.627Z [[33mwarn[39m] : in fetchMasterData warn {"pid":4992,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:03:22.190Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":14924,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:03:22.257Z [[31merror[39m] : in fetchMasterData error {"pid":14924,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T16:03:22.273Z [[33mwarn[39m] : in fetchMasterData warn {"pid":14924,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:04:28.765Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":12908,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:04:28.772Z [[31merror[39m] : in fetchMasterData error {"pid":12908,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T16:04:28.775Z [[33mwarn[39m] : in fetchMasterData warn {"pid":12908,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:06:51.742Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:06:51.758Z [[31merror[39m] : in fetchMasterData error {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T16:06:51.761Z [[33mwarn[39m] : in fetchMasterData warn {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:08:47.917Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:08:47.919Z [[31merror[39m] : in fetchMasterData error {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T16:08:47.921Z [[33mwarn[39m] : in fetchMasterData warn {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:08:52.492Z [[32minfo[39m] : in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId} {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
+2021-11-17T16:08:52.494Z [[31merror[39m] : in fetchMasterData error {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[{"key":"value"}]}
+2021-11-17T16:08:52.496Z [[33mwarn[39m] : in fetchMasterData warn {"pid":9352,"hostname":"PUKAVDTMS10-1","context":"ShopController","extra":[null]}
