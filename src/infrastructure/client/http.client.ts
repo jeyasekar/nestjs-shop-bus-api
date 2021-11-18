@@ -35,7 +35,7 @@ export class HttpClient {
           }
         }
 
-        responsedata = axios.get(baseUrl + url)
+        responsedata = axios.get(baseUrl + url,requestConfig)
       });
     } else {
       console.log("Enter into Dev Block")
