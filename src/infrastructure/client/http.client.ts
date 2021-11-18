@@ -3,7 +3,6 @@ import axios, { AxiosRequestConfig } from "axios";
 import { ConfigService } from "../configuration/config.service";
 import { ShopSettingConstants } from "../constants/shop-setting";
 import { Injectable } from "@nestjs/common";
-import { lastValueFrom } from "rxjs";
 
 
 
@@ -35,14 +34,13 @@ export class HttpClient {
             'Authorization': `Bearer ${token}`,
           }
         }
-
-        responsedata = await lastValueFrom(this.httpService.get(baseUrl + url,requestConfig))
-        console.log("prd res",responsedata.data)
+        console.log('b4')
+        responsedata = await axios.get(baseUrl + url,requestConfig)
+        console.log('after', responsedata.data)
       });
     } else {
       console.log("Enter into Dev Block")
-     // responsedata = await axios.get(baseUrl + url)
-     responsedata = await lastValueFrom(this.httpService.get(baseUrl + url))
+      responsedata = await axios.get(baseUrl + url)
       console.log('responsedata', responsedata.data)
     }
     
