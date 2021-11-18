@@ -40,8 +40,9 @@ export class HttpClient {
     } else {
       console.log("Enter into Dev Block")
       responsedata = await axios.get(baseUrl + url)
+      console.log('responsedata', responsedata.data)
     }
-    console.log('responsedata', responsedata.data)
+    
     return responsedata;
   }
 
