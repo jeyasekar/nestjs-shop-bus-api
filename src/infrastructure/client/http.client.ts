@@ -21,29 +21,33 @@ export class HttpClient {
     console.log("URl :", baseUrl + url)
     var env = ConfigService.create().isProduction();
     if (env) {
-
+      let token
       console.log("Enter into production Block")
       const tokenObservable = this.getIdentityToken(baseUrl);
       console.log(tokenObservable)
-      await tokenObservable.subscribe(async response => {
-        var token = response.data;
+      await tokenObservable.subscribe(response => {
+        token = response.data;
         console.log("token :", token)
 
-        const requestConfig: AxiosRequestConfig = {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          }
-        }
-        console.log('b4')
-        responsedata = await axios.get(baseUrl + url,requestConfig)
-        console.log('after', responsedata.data)
+
+
       });
+
+      console.log('b4')
+      const requestConfig: AxiosRequestConfig = {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      }
+      console.log('b43')
+      responsedata = await axios.get(baseUrl + url, requestConfig)
+      console.log('after', responsedata.data)
     } else {
       console.log("Enter into Dev Block")
       responsedata = await axios.get(baseUrl + url)
       console.log('responsedata', responsedata.data)
     }
-    
+
     return responsedata;
   }
 
