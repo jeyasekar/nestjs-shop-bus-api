@@ -3,6 +3,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { ConfigService } from "../configuration/config.service";
 import { ShopSettingConstants } from "../constants/shop-setting";
 import { Injectable } from "@nestjs/common";
+import { lastValueFrom } from "rxjs";
 
 
 
@@ -25,7 +26,7 @@ export class HttpClient {
       console.log("Enter into production Block")
       const tokenObservable = this.getIdentityToken(baseUrl);
       console.log(tokenObservable)
-      await tokenObservable.subscribe(response => {
+      await tokenObservable.subscribe(async response => {
         var token = response.data;
         console.log("token :", token)
 
@@ -35,11 +36,13 @@ export class HttpClient {
           }
         }
 
-        responsedata = axios.get(baseUrl + url,requestConfig)
+        responsedata = await lastValueFrom(this.httpService.get(baseUrl + url,requestConfig))
+        console.log("prd res",responsedata.data)
       });
     } else {
       console.log("Enter into Dev Block")
-      responsedata = await axios.get(baseUrl + url)
+     // responsedata = await axios.get(baseUrl + url)
+     responsedata = await lastValueFrom(this.httpService.get(baseUrl + url))
       console.log('responsedata', responsedata.data)
     }
     
