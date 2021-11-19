@@ -13,20 +13,33 @@ export default class GetBankingDateService implements IBaseService<number, Banki
     async handle(input: number): Promise<BankingDate> {
         let bd: BankingDate
         const diffDays = (date, otherDate) => Math.ceil(Math.abs(date - otherDate) / (1000 * 60 * 60 * 24));
-        await this.httpclient.get('shop/getBankingDate/' + input).then(res => {
+        await this.httpclient.get('shop/bankingdate/' + input).then(res => {
+            let date = new Date();
+            let dayOfWeekNumber = date.getDay();
+            console.log('dayOfWeekNumber', dayOfWeekNumber)
 
-            const { bankingDate } = res.data
+
+
+            const { bankingDate, message } = res.data
+            bd = new BankingDate(bankingDate, '')
             const dif = diffDays(new Date(bankingDate), new Date());
-
-            if (dif > 2) {
-                console.log('diff', dif);
-                var days: number
-                days = +dif - 1
-                var status = 'Banking date is ' + days + ' days older than current date'
-                bd = new BankingDate(bankingDate, status)
+            // For 5 days shop validating banking date on monday
+            if (dayOfWeekNumber === 1 && message === 5 && dif > 4) {
+                bd = this.findDifference(dif, bd, bankingDate);
+            } else if (dif > 2) {
+                bd = this.findDifference(dif, bd, bankingDate);
             }
             return bd;
         })
+        return bd;
+    }
+
+    private findDifference(dif: number, bd: BankingDate, bankingDate: any) {
+        console.log('diff', dif);
+        var days: number;
+        days = +dif - 1;
+        var status = 'Banking date is ' + days + ' days older than current date';
+        bd = new BankingDate(bankingDate, status);
         return bd;
     }
 }

@@ -12,7 +12,7 @@ export default class FetchShopService implements IBaseService<any, DefaultShop> 
 
     async handle(value: any): Promise<DefaultShop> {
         let ds: DefaultShop
-        await this.httpclient.get('shop/getShops/' + value.marketName + '/' + value.companyId + '/' + value.userId).then(res => {
+        await this.httpclient.get('shop/stores/' + value.marketName + '/' + value.companyId + '/' + value.userId).then(res => {
 
             ds = res.data;
         })

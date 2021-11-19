@@ -1,5 +1,4 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { DatabaseType } from 'typeorm'
+
 import * as dotenv from 'dotenv'
 //import { OrderSettingConstants } from '../constants/shop-setting';
 

@@ -27,24 +27,25 @@ export class HttpClient {
       console.log(tokenObservable)
       await tokenObservable.subscribe(response => {
         token = response.data;
-       // console.log("token :", token)
-
-
 
       });
 
-      console.log('b4')
       const requestConfig: AxiosRequestConfig = {
         headers: {
           'Authorization': `Bearer ${token}`,
         }
       }
-      console.log('b43')
-      responsedata = await axios.get(baseUrl + url, requestConfig)
+      responsedata = await axios.get(baseUrl + url, requestConfig).catch(err => {
+        console.log('err__', err)
+        throw err;
+      });
       console.log('after', responsedata.data)
     } else {
       console.log("Enter into Dev Block")
-      responsedata = await axios.get(baseUrl + url)
+      responsedata = await axios.get(baseUrl + url).catch(err => {
+        console.log('err__', err)
+        throw err;
+      });
       console.log('responsedata', responsedata.data)
     }
 

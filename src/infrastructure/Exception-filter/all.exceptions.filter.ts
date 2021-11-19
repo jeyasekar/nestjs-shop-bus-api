@@ -16,11 +16,11 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const response = ctx.getResponse();
     const request = ctx.getRequest();
     let err: ExceptionMsg
-    console.log('status from catch block http', exception)
+    console.log('status from catch block http++--', JSON.stringify(exception))
+    const msg = JSON.parse(JSON.stringify(exception))?.details
     if (exception instanceof HttpException) {
-      console.log('status from catch block http', err)
+      console.log('status from catch block http++', err)
       err = JSON.parse(JSON.stringify(exception.getResponse));
-      console.log('status from catch block http', exception)
     }
     if (exception instanceof RpcException) {
       err = JSON.parse(JSON.stringify(exception.getError()));
@@ -36,7 +36,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
-      message: err?.errorMsg
+      message: err === undefined ? msg : err?.errorMsg
     });
   }
 }

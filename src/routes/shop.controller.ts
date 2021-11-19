@@ -1,8 +1,8 @@
-import { Controller, Get, Param } from "@nestjs/common";
+import { CacheKey, CacheTTL, Controller, Get, Param, } from "@nestjs/common";
+import { Cron } from "@nestjs/schedule";
 import FetchShopService from "src/core-domain/application-service/fetchshop.service";
 import GetBankingDateService from "src/core-domain/application-service/getbanking-date.service";
 import { WinstonLoggerService } from "src/infrastructure/logger/winston-logger.service";
-
 
 @Controller()
 export class ShopController {
@@ -14,8 +14,7 @@ export class ShopController {
         console.log('shop service controller created')
     }
 
-
-    @Get('shop/getShops/:marketName/:companyId/:userId')
+    @Get('shop/stores/:marketName/:companyId/:userId')
     getShopList(@Param() params) {
         this.logger.info('in fetchMasterData info #Market ${marketName}  #CompanyId ${companyId} #User ${userId}');
         this.logger.error('in fetchMasterData error', { key: 'value' });
@@ -27,10 +26,11 @@ export class ShopController {
 
     }
 
-    @Get('shop/getBankingDate/:shopNo')
+    @Get('shop/bankingdate/:shopNo')
     getShopBankingDate(@Param('shopNo') shopNo: number) {
         console.log('shop service controller getShopBankingDate method', shopNo)
         return this.bankingDateService.handle(shopNo)
 
     }
+
 }
