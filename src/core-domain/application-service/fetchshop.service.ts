@@ -1,4 +1,4 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { HttpException, Inject, Injectable } from "@nestjs/common";
 import { IBaseService } from "src/core-domain/application-service/base.service";
 import { HttpClient } from "src/infrastructure/client/http.client";
 import { DefaultShop } from "../models/user-shop.model";
@@ -15,6 +15,10 @@ export default class FetchShopService implements IBaseService<any, DefaultShop> 
         await this.httpclient.get('shop/stores/' + value.marketName + '/' + value.companyId + '/' + value.userId).then(res => {
 
             ds = res.data;
+            if (ds.defaultShop?.code === undefined) {
+                throw new HttpException("You dont have access. Please check your selection", 401)
+            }
+            console.log('+++SSSDS', ds)
         })
         return ds;
     }

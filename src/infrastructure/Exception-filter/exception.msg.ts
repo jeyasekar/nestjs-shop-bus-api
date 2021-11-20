@@ -1,4 +1,4 @@
 interface ExceptionMsg {
     status: string;
-    errorMsg: number;
+    errorMsg: string;
 }
