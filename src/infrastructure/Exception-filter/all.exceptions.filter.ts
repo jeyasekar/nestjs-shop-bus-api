@@ -11,38 +11,41 @@ import { RpcException } from '@nestjs/microservices';
 export class AllExceptionsFilter implements ExceptionFilter {
 
   catch(exception: unknown, host: ArgumentsHost) {
-
+    const getCircularReplacer = () => {
+      const seen = new WeakSet();
+      return (key, value) => {
+        if (typeof value === "object" && value !== null) {
+          if (seen.has(value)) {
+            return;
+          }
+          seen.add(value);
+        }
+        return value;
+      };
+    };
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const request = ctx.getRequest();
     let err: ExceptionMsg
-    let message: string
-    console.log('status from catch block http++--', JSON.stringify(exception))
-    const msg = JSON.parse(JSON.stringify(exception))?.details
-    //console.log('status from catch block response++', response)
+    console.log('status from catch block http++--', JSON.stringify(exception, getCircularReplacer()))
+    const msg = JSON.parse(JSON.stringify(exception, getCircularReplacer()))?.details
+    console.log('+++++++++++++++++++', msg)
+    let status = HttpStatus.INTERNAL_SERVER_ERROR;
+    let mesage = msg
     if (exception instanceof HttpException) {
-      console.log('status from catch block http++', exception)
-      console.log('status from catch block http++getResponse', exception.getResponse())
-      console.log('status from catch block  http++message', exception.message)
-      message = exception.message
-      //err.errorMsg = exception.getResponse;
-      //console.log('status from catch block http++', err)
+      status = exception.getStatus()
+      mesage = exception.message
+
     }
     if (exception instanceof RpcException) {
-      err = JSON.parse(JSON.stringify(exception.getError()));
-      console.log('status from catch block', err)
+      mesage = exception.message
     }
-
-    const status =
-      exception instanceof HttpException
-        ? exception.getStatus()
-        : HttpStatus.INTERNAL_SERVER_ERROR;
 
     response.status(status).json({
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
-      message: msg === undefined ? message : msg
+      message: mesage
     });
   }
 }

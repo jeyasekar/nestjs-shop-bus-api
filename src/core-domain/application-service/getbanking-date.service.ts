@@ -18,8 +18,6 @@ export default class GetBankingDateService implements IBaseService<number, Banki
             let dayOfWeekNumber = date.getDay();
             console.log('dayOfWeekNumber', dayOfWeekNumber)
 
-
-
             const { bankingDate, message } = res.data
             bd = new BankingDate(bankingDate, '')
             const dif = diffDays(new Date(bankingDate), new Date());
