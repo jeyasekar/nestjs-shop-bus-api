@@ -36,14 +36,14 @@ export class HttpClient {
         }
       }
       responsedata = await axios.get(baseUrl + url, requestConfig).catch(err => {
-        console.log('err__', err)
+        console.log('err__prd',  err.response.data)
         throw err;
       });
       console.log('after', responsedata.data)
     } else {
       console.log("Enter into Dev Block")
       responsedata = await axios.get(baseUrl + url).catch(err => {
-        console.log('err__', err)
+        console.log('err__', err.response.data) 
         throw err;
       });
       console.log('responsedata', responsedata.data)

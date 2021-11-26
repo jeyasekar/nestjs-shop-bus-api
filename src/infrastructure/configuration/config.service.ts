@@ -1,5 +1,7 @@
 
+import { HttpException } from '@nestjs/common';
 import * as dotenv from 'dotenv'
+import { ErrorCode } from '../constants/error-code';
 //import { OrderSettingConstants } from '../constants/shop-setting';
 
 
@@ -25,7 +27,8 @@ export class ConfigService {
         // console.log('+++++this.env',this.env)
         const value = process.env[key]
         if (!value && throwOnMissing) {
-            throw new Error(`config error - missing env.${key}`)
+            const msg = { code: ErrorCode.MISSING_ENV_KEY, message: `config error - missing env.${key}` };
+            throw new HttpException(msg, 404)
         }
 
         return value

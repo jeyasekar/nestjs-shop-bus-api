@@ -4,6 +4,7 @@ import {
   ArgumentsHost,
   HttpException,
   HttpStatus,
+  NotFoundException,
 } from '@nestjs/common';
 import { RpcException } from '@nestjs/microservices';
 
@@ -27,14 +28,28 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const response = ctx.getResponse();
     const request = ctx.getRequest();
     let err: ExceptionMsg
+
     console.log('status from catch block http++--', JSON.stringify(exception, getCircularReplacer()))
     const msg = JSON.parse(JSON.stringify(exception, getCircularReplacer()))?.details
     console.log('+++++++++++++++++++', msg)
+    //console.log('+++++++++++++++++++___', exception)
     let status = HttpStatus.INTERNAL_SERVER_ERROR;
     let mesage = msg
+    let errCode: number
+    if (exception instanceof Error) {
+      let excep: any = exception
+      console.log('+++++++++++++++++++____Error_', excep?.response?.data)
+      status = excep?.response?.data?.statusCode
+      mesage = excep?.response?.data?.message === undefined ? exception?.message : excep?.response?.data?.message
+      errCode = +excep?.response?.data?.errorCode
+    }
+
     if (exception instanceof HttpException) {
+      console.log('+++++++++++++++++++_____', exception.getResponse())
+      let responseMsg: any = exception.getResponse()
       status = exception.getStatus()
-      mesage = exception.message
+      mesage = exception?.message
+      errCode = +responseMsg?.code
 
     }
     if (exception instanceof RpcException) {
@@ -45,7 +60,8 @@ export class AllExceptionsFilter implements ExceptionFilter {
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
-      message: mesage
+      message: mesage,
+      errorCode: errCode
     });
   }
 }
