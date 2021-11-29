@@ -1,7 +1,7 @@
 import { HttpException, Inject, Injectable } from "@nestjs/common";
-import { IBaseService } from "src/core-domain/application-service/base.service";
-import { HttpClient } from "src/infrastructure/client/http.client";
-import { ErrorCode } from "src/infrastructure/constants/error-code";
+import { IBaseService } from "..//../core-domain/application-service/base.service";
+import { HttpClient } from "..//..//infrastructure/client/http.client";
+import { ErrorCode } from "..//..//infrastructure/constants/error-code";
 import { DefaultShop } from "../models/user-shop.model";
 
 

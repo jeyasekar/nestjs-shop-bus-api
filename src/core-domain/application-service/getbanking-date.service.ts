@@ -1,8 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { IBaseService } from "src/core-domain/application-service/base.service";
-import { HttpClient } from "src/infrastructure/client/http.client";
+import { IBaseService } from "..//..//core-domain/application-service/base.service";
+import { HttpClient } from "..//..//infrastructure/client/http.client";
 import { BankingDate } from "../models/banking-date.model";
-import { DefaultShop } from "../models/user-shop.model";
 
 
 @Injectable()
