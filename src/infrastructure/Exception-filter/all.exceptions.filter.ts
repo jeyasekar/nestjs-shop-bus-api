@@ -35,13 +35,13 @@ export class AllExceptionsFilter implements ExceptionFilter {
     //console.log('+++++++++++++++++++___', exception)
     let status = HttpStatus.INTERNAL_SERVER_ERROR;
     let mesage = msg
-    let errCode: number
+    let errCode: string
     if (exception instanceof Error) {
       let excep: any = exception
       console.log('+++++++++++++++++++____Error_', excep?.response?.data)
       status = excep?.response?.data?.statusCode
       mesage = excep?.response?.data?.message === undefined ? exception?.message : excep?.response?.data?.message
-      errCode = +excep?.response?.data?.errorCode
+      errCode = excep?.response?.data?.errorCode
     }
 
     if (exception instanceof HttpException) {
@@ -49,7 +49,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
       let responseMsg: any = exception.getResponse()
       status = exception.getStatus()
       mesage = exception?.message
-      errCode = +responseMsg?.code
+      errCode = responseMsg?.code
 
     }
     if (exception instanceof RpcException) {

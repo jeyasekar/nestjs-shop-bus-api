@@ -1,7 +1,7 @@
 import { HttpException, Inject, Injectable } from "@nestjs/common";
 import { IBaseService } from "..//../core-domain/application-service/base.service";
 import { HttpClient } from "..//..//infrastructure/client/http.client";
-import { ErrorCode } from "..//..//infrastructure/constants/error-code";
+import { ResponseCode } from "../../infrastructure/constants/response-code";
 import { DefaultShop } from "../models/user-shop.model";
 
 
@@ -17,9 +17,8 @@ export default class FetchShopService implements IBaseService<any, DefaultShop> 
 
             ds = res.data;
             if (ds.defaultShop?.code === undefined) {
-                const msg = { code: ErrorCode.NO_ACCESS, message: 'You dont have access. Please check your selection' };
-            throw new HttpException(msg, 404)
-              //throw new HttpException("You dont have access. Please check your selection", 401)
+                const msg = { code: ResponseCode.NO_ACCESS, message: 'You dont have access. Please check your selection' };
+                throw new HttpException(msg, 404)
             }
             console.log('+++SSSDS', ds)
         })
